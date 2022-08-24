@@ -11,3 +11,4 @@ provision_data_for_component:
     gitea_console_url:
     gitea_admin_username:
     gitea_admin_password:
+gitea_console_url: hello
