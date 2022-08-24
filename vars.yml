@@ -1,0 +1,13 @@
+service_display_name: Test CI
+stop_timedelta_humanized:
+stop_timestamp:
+retirement_timedelta_humanized:
+retirement_timestamp:
+provision_data_for_component:
+  aws_dev_a:
+    bastion_ssh_user_name:
+    bastion_public_hostname:
+    bastion_ssh_password:
+    gitea_console_url:
+    gitea_admin_username:
+    gitea_admin_password:

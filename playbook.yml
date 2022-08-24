@@ -1,0 +1,9 @@
+---
+  - name: Test service template
+    vars_files:
+      - vars.yml
+    tasks:
+      - name: Convert service template 
+        template:
+          src: service-template.html.j2
+          dest: /tmp/service-template.html
