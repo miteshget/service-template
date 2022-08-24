@@ -1,5 +1,6 @@
 ---
   - name: Test service template
+    hosts: localhost
     vars_files:
       - vars.yml
     tasks:
