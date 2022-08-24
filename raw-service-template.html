@@ -76,13 +76,13 @@
         <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
           <tbody>
               <tr>
-                <td style="color:#000000;font-weight:700;font-size:16px;"> 
+                <td style="color:#000000;font-weight:700;font-size:16px;">
                   Status: Service Ready
                 </td>
               </tr>
               <tr>
-                <td style="color:#000000;font-size:32px;font-weight:700;line-height:2;word-break:break-word; "> 
-                  {{ service_display_name }}
+                <td style="color:#000000;font-size:32px;font-weight:700;line-height:2;word-break:break-word; ">
+                  Test CI
                 </td>
               </tr>
           </tbody>
@@ -95,20 +95,20 @@
         <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
           <tbody>
               <tr>
-                <td style="color:#ffffff;background:#f40e0e;font-weight:700;font-size:16px;border-radius:0;text-align:left;"> 
+                <td style="color:#ffffff;background:#f40e0e;font-weight:700;font-size:16px;border-radius:0;text-align:left;">
                   NOTICE
                 </td>
               </tr>
               <tr>
-                <td style="color:#000000;background:#F3F3F3;font-weight:300;font-size:14px;text-align:left;line-height:2;"> 
+                <td style="color:#000000;background:#F3F3F3;font-weight:300;font-size:14px;text-align:left;line-height:2;">
                   This service is scheduled to stop and be retired: <br>
-                  Scheduled stop in {{ stop_timedelta_humanized }} at {{ stop_timestamp }} <br>
-                  Scheduled retirement in {{ retirement_timedelta_humanized }} at {{ retirement_timestamp }}.
+                  Scheduled stop in  at  <br>
+                  Scheduled retirement in  at .
                 </td>
               </tr>
           </tbody>
         </table>
-      </div>      
+      </div>
       <!-- Empty/space -->
       <div style="margin:0px auto;max-width:650px;height:50px;">&nbsp;</div>
       <!-- Segment-2 -->
@@ -116,40 +116,40 @@
         <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
           <tbody>
             <tr>
-              <td colspan="3" style="font-size:16px;color:#f8f8f8;background:#f40e0e;font-weight:700;font-size:18px;word-break:break-word;height:25px;border-radius:0px;text-align:left;"> 
+              <td colspan="3" style="font-size:16px;color:#f8f8f8;background:#f40e0e;font-weight:700;font-size:18px;word-break:break-word;height:25px;border-radius:0px;text-align:left;">
                 Segment : Application Modernization and Developer Experience
               </td>
             </tr>
             <tr>
-              <th style="color:#f8f8f8;background:#151515;width: 150px;"> 
+              <th style="color:#f8f8f8;background:#151515;width: 150px;">
                 Description
               </th>
-              <th style="color:#f8f8f8;background:#151515;width: 100px;"> 
-                Type 
+              <th style="color:#f8f8f8;background:#151515;width: 100px;">
+                Type
               </th>
               <th style="color:#f8f8f8;background:#151515;width: 350px;">
                 Details
               </th>
             </tr>
             <tr>
-              <td rowspan="2" style="color:#000000;background:#F3F3F3;font-weight:700;font-size:14px;"> 
+              <td rowspan="2" style="color:#000000;background:#F3F3F3;font-weight:700;font-size:14px;">
                 Linux Bastion for Development
               </td>
-              <td style="color:#000000;background:#F3F3F3;"> 
+              <td style="color:#000000;background:#F3F3F3;">
                 SSH Command
               </td>
-              <td style="color:#000000;background:#F3F3F3;"> 
-                ssh {{ provision_data_for_component.aws_dev_a.bastion_ssh_user_name }}@{{ provision_data_for_component.aws_dev_a.bastion_public_hostname }}
+              <td style="color:#000000;background:#F3F3F3;">
+                ssh @
             </tr>
             <tr>
-              <td style="color:#000000;background:#F3F3F3;"> 
+              <td style="color:#000000;background:#F3F3F3;">
                 Password
               </td>
               <td style="color:#000000;background:#F3F3F3;">
-                {{ provision_data_for_component.aws_dev_a.bastion_ssh_password }}
+
               </td>
             </tr>
-            <!-- {% if gitea_console_url %} -->
+            <!--  -->
             <tr>
               <td  rowspan="3" style="color:#000000;background:#F3F3F3;font-weight:700;font-size:14px;">
                 Gitea Console
@@ -158,7 +158,7 @@
                 URL
               </td>
               <td style="color:#000000;background:#F3F3F3;">
-                {{ provision_data_for_component.aws_dev_a.gitea_console_url }}
+
               </td>
             </tr>
             <tr>
@@ -166,7 +166,7 @@
                 Username
               </td>
               <td style="color:#000000;background:#F3F3F3;">
-                {{ provision_data_for_component.aws_dev_a.gitea_admin_username }}
+
               </td>
             </tr>
             <tr>
@@ -174,10 +174,10 @@
                 password
               </td>
               <td style="color:#000000;background:#F3F3F3;">
-                {{ provision_data_for_component.aws_dev_a.gitea_admin_password }}
+
               </td>
             </tr>
-            <!-- {% endif %} -->
+            <!--  -->
           </tbody>
         </table>
       </div>
@@ -201,3 +201,4 @@
         <!-- Main end -->
   </body>
 </html>
+                 

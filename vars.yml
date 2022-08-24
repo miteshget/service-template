@@ -1,14 +1,14 @@
-service_display_name: Test CI
-stop_timedelta_humanized:
-stop_timestamp:
-retirement_timedelta_humanized:
-retirement_timestamp:
+service_display_name: Test Service Template CI
+stop_timedelta_humanized: 24-08-2022
+stop_timestamp: 12:00:00
+retirement_timedelta_humanized: 26-08-2022
+retirement_timestamp: 13:00:00
 provision_data_for_component:
-  aws_dev_a:
-    bastion_ssh_user_name:
-    bastion_public_hostname:
-    bastion_ssh_password:
-    gitea_console_url:
-    gitea_admin_username:
-    gitea_admin_password:
-gitea_console_url: hello
+  aws_dev_a: clustera
+    bastion_ssh_user_name: devops
+    bastion_public_hostname: bastion.guid.dynamic.opentlc.com
+    bastion_ssh_password: "s2skyupm1"
+    gitea_console_url: http://bastion.guid.dynamic.opentlc.com
+    gitea_admin_username: devops
+    gitea_admin_password: "s2skyupm1"
+gitea_console_url: http://bastion.guid.dynamic.opentlc.com
