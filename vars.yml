@@ -4,7 +4,7 @@ stop_timestamp: 12:00:00
 retirement_timedelta_humanized: 26-08-2022
 retirement_timestamp: 13:00:00
 provision_data_for_component:
-  aws_dev_a: clustera
+  aws_dev_a:
     bastion_ssh_user_name: devops
     bastion_public_hostname: bastion.guid.dynamic.opentlc.com
     bastion_ssh_password: "s2skyupm1"
