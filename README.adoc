@@ -13,6 +13,33 @@ cd service-template
 == update variable file
 vim vars.yml
 
+. Example
++
+[source,adoc]
+----
+service_display_name: "{{ 'Type static name' | string }}"
+or
+service_display_name: "{{ '{{service_display_name}}' | string }}"
+
+headings:
+  - title: Add heading here
+    table:
+      - row: Row with one set
+        column:
+          - type: Type1
+            details: "{{ '{{ Type your variable here }}' | string }}"
+
+          - type: Type2
+            details: "{{ 'Type your string here' | string }}"
+
+  - title: Add second heading here
+    table:
+      - row: Row with one set
+        column:
+          - type: Type1
+            details: "{{ '{{ Type your variable here }}' | string }}"
+----
+
 == execute following command
 ansible-playbook playbook.yml
 
