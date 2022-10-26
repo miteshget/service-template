@@ -14,3 +14,5 @@ ansible-playbook playbook.yml
 
 == Open in browser
 open service-ready-message-template.html in browser
+
+NOTE: now you can use the content of file as template 
