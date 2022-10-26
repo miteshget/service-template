@@ -1,0 +1,16 @@
+= service-template
+Service read template genrator
+
+
+== Clone repo
+git clone https://github.com/miteshget/service-template.git
+cd service-template
+
+== update variable file
+vim vars.yml
+
+== execute following command
+ansible-playbook playbook.yml
+
+== Open in browser
+open service-ready-message-template.html in browser

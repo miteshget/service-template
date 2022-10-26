@@ -1,14 +1,56 @@
-service_display_name: Test Service Template CI
-stop_timedelta_humanized: 24-08-2022
-stop_timestamp: 12:00:00
-retirement_timedelta_humanized: 26-08-2022
-retirement_timestamp: 13:00:00
-provision_data_for_component:
-  aws_dev_a:
-    bastion_ssh_user_name: devops
-    bastion_public_hostname: bastion.guid.dynamic.opentlc.com
-    bastion_ssh_password: "s2skyupm1"
-    gitea_console_url: http://bastion.guid.dynamic.opentlc.com
-    gitea_admin_username: devops
-    gitea_admin_password: "s2skyupm1"
-gitea_console_url: http://bastion.guid.dynamic.opentlc.com
+---
+
+# Service Display name
+service_display_name: "{{ 'Any static name {{service_display_name}}' | string }}"
+headings:
+  - title: Heading No 1
+    table:
+      - row: Row with one set
+        column:
+          - type: Type1
+            details: "{{ '{{ variable }}' | string }}"
+
+      - row: Row with two sets
+        column:
+          - type: Type1
+            details: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
+          - type: Type2
+            details: "{{ 'string' | string }}"
+
+      - row: Row with two sets and one note
+        column:
+          - note: "Here is the note"
+          - type: Type1
+            details: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
+          - type: Type2
+            details: "{{ 'string' | string }}"
+
+      - row: Row with two sets and two notes
+        column:
+          - note: "Note at top"
+          - type: Type1
+            details: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
+          - type: Type2
+            details: "{{ 'string' | string }}"
+          - note: "Note at bottom"
+
+  - title: Heading No 2
+    table:
+      - row: Row with one set
+        column:
+          - type: Type1
+            details: "{{ '{{ variable }}' | string }}"
+
+  - title: Heading No 3
+    table:
+      - row: Row with one set
+        column:
+          - type: Type1
+            details: "{{ '{{ variable }}' | string }}"
+
+      - row: Row with two sets
+        column:
+          - type: Type1
+            details: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
+          - type: Type2
+            details: "{{ 'string' | string }}"

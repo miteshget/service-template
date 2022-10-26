@@ -1,0 +1,175 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+   <head>
+      <title></title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <style type="text/css">#outlook a { padding:0; }
+         body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%; }
+         table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt; }
+         img { border:0;height:auto;line-height:100%; outline:none;text-decoration:none;-ms-interpolation-mode:bicubic; }
+         p { display:block;margin:13px 0; }
+      </style>
+      <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text&display=swap" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet" type="text/css">
+      <style type="text/css">@import url(https://fonts.googleapis.com/css2?family=Red+Hat+Text&display=swap);
+         @import url(https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap);
+      </style>
+      <style type="text/css">@media only screen and (min-width:480px) {
+         .mj-column-per-100 { width:100% !important; max-width: 100%; }
+         }
+      </style>
+      <style type="text/css">@media only screen and (max-width:480px) {
+         table.full-width-mobile { width: 100% !important; }
+         td.full-width-mobile { width: auto !important; }
+         }
+         th {border: 2px solid white;border-radius: 20px;padding: 10px 5px 10px 5px;
+            font-family: Red Hat Display;font-size:14px;font-weight:700;
+            line-height:1;text-align: center;word-break:break-word;
+          }
+          td {border-radius: 20px;border: 2px solid white;padding: 10px 5px 10px 5px;
+            font-family: Red Hat Display;font-size:14px;
+            text-align: center;line-height:1;word-break:break-word;}
+      </style>
+  </head>
+  <body>
+    <!-- Main -->
+    <div style="margin:0px auto;max-width:800px;border: 1px dashed #151515;">
+      
+      <!-- Company Header -->
+      <table align="center"  cellpadding="0" cellspacing="0" role="presentation" style="background:#151515;width:100%;border-bottom-left-radius: 10%;">
+        <tbody>
+          <tr>
+            <td style="direction:ltr;font-size:0px;padding:0 10px 0 0;text-align:right;height:70px">
+              <a href="https://demo.redhat.com/" target="_blank"><img alt="RedHat" title="RedHat" width=185 src="https://public-assets-email.s3.us-east-2.amazonaws.com/Logo-Red_Hat-A-Reverse-RGB.png"></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Service status -->
+      <div style="margin:0px auto;max-width:650px;height:10px;">&nbsp;</div>
+      <div style="margin:0px auto;max-width:650px;">
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+          <tbody>
+              <tr>
+                <td style="color:#000000;font-weight:700;font-size:16px;"> 
+                  Status: Service Ready
+                </td>
+              </tr>
+              <tr>
+                <td style="color:#000000;font-size:32px;font-weight:700;line-height:1;word-break:break-word; "> 
+                     {{ service_display_name }} 
+                </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+
+{% for heading in headings %}
+
+     <!-- {{ heading.title }} -->
+     <div style="margin:0px auto;max-width:650px;height:50px;">&nbsp;</div>
+     <div style="margin:0px auto;max-width:650px;">
+       <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+         <tbody>
+             <tr>
+               <td colspan="3" style="font-size:16px;color:#f8f8f8;background:#f40e0e;font-weight:700;font-size:18px;word-break:break-word;height:25px;border-radius:0px;text-align:left;border-bottom-left-radius: 10%;"> 
+                 {{ heading.title }}
+               </td>
+             </tr>
+             <tr>
+                 <th style="color:#F3F3F3;background:#151515;width: 150px;"> 
+                   Description
+                 </th>
+                 <th style="color:#F3F3F3;background:#151515;width: 100px;"> 
+                   Type 
+                 </th>
+                 <th style="color:#F3F3F3;background:#151515;width: 350px;">
+                   Details
+                 </th>
+             </tr>
+  {% for table in heading.table %}
+            <!-- {{ table.row }} -->
+            <tr><td colspan="3" style="background:#ffffff;"></td></tr>
+            <tr>
+                <td rowspan={{ table.column | length }} style="color:#000000;background:#F3F3F3;font-weight:700;font-size:14px;"> 
+                      {{ table.row }}
+                </td>
+              {%if table.column.0.note is defined %}
+                <td colspan=2 style="color:#f40e0e;background:#F3F3F3;">
+                      {{ table.column.0.note }}
+                </td>
+              {%elif table.column.0.type is defined%}
+                <td style="color:#000000;background:#F3F3F3;font-weight:500;font-size:14px;"> 
+                      {{ table.column.0.type }}
+                </td>
+                <td style="color:#000000;background:#F3F3F3;"> 
+                     {{ table.column.0.details }} 
+                </td>
+              {%endif%}
+            </tr>
+    {% for col in range(1,table.column|length) %}
+            <tr>
+              {%if table.column[col].note is defined %}
+                <td colspan=2 style="color:#f40e0e;background:#F3F3F3;">
+                    {{ table.column[col].note }}
+                </td>
+              {%elif table.column[col].type is defined%}
+                <td style="color:#000000;background:#F3F3F3;font-weight:500;font-size:14px;"> 
+                    {{ table.column[col].type }}
+                </td>
+                <td style="color:#000000;background:#F3F3F3;"> 
+                    {{ table.column[col].details }}
+                </td>
+              {%endif%}
+            </tr>
+    {% endfor %}  
+  {% endfor %}
+           </tbody>
+       </table>
+     </div> 
+
+
+{% endfor %}
+
+      <!-- Service status -->
+      <div style="margin:0px auto;max-width:650px;height:50px;">&nbsp;</div>
+      <div style="margin:0px auto;max-width:650px;">
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+          <tbody>
+              <tr>
+                <td style="color:#ffffff;background:#f40e0e;font-weight:700;font-size:16px;border-radius:0;text-align:left;border-bottom-left-radius: 10%;"> 
+                  NOTICE
+                </td>
+              </tr>
+              <tr>
+                <td style="color:#000000;background:#F3F3F3;font-weight:300;font-size:14px;text-align:left;line-height:2;"> 
+                  This service is scheduled to stop and be retired: <br>
+                  Scheduled stop in --curly stop_timedelta_humanized curly-- at --curly stop_timestamp curly-- <br>
+                  Scheduled retirement in --curly retirement_timedelta_humanized curly-- at --curly retirement_timestamp curly--.
+                </td>
+              </tr>
+          </tbody>
+        </table>
+      </div> 
+
+      <!-- Copy Right -->
+      <div style="margin:0px auto;max-width:650px;height:50px;">&nbsp;</div>
+      <table align="center"  cellpadding="0" cellspacing="0" role="presentation" style=";border:0px;background:#151515;width:100%;padding:0 0 0 0;text-align:center;">
+        <tbody>
+          <tr>
+            <td style="border:0px;text-align:right;">
+              <a href="https://www.redhat.com/en" target="_blank"><img alt="Red Hat" title="Red Hat" width=120 src="https://public-assets-email.s3.us-east-2.amazonaws.com/Logo-Red_Hat-A-Reverse-RGB.png"></a>
+            </td>
+            <td style="color:#F3F3F3;border: 0px;font-size:12px;text-align:left;">
+              © 2022 Red Hat, Inc.
+            </td>
+        </tbody>
+      </table>
+    </div>
+    <!-- Main end -->
+    &nbsp;
+  </body>
+</html>
