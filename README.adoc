@@ -20,8 +20,8 @@ ansible-playbook playbook.yml
 open service-ready-message-template.html in browser
 
 == Web Output 
-image:service_template1.png[]
+image:service_template_1.png[]
 
-image:service_template1.png[]
+image:service_template_2.png[]
 
 NOTE: now you can use the content of file as template 
