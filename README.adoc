@@ -1,6 +1,5 @@
 :imagesdir: ./images
 :linkattrs:
-:numbered:
 
 = service-template
 Service read template genrator
