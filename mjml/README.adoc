@@ -44,7 +44,7 @@ headings:
 ansible-playbook playbook.yml
 
 == Now convert mjml to html
-./node_modules/.bin/mjml service-ready-message-template.mjml > index.html
+ \./node_modules/.bin/mjml service-ready-message-template.mjml > index.html
 
 == Open in browser
 open index.html in browser
