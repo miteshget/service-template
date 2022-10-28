@@ -133,7 +133,7 @@
       <mj-column>
         <mj-table >
           <tr><td class="mytitle">Status: Service Ready</td></tr>
-          <tr><td class="mytitle" style="font-size: 24px">--curly service_display_name  curly--</td></tr>
+          <tr><td class="mytitle" style="font-size: 24px">{{ service_display_name  }}</td></tr>
         </mj-table>
       </mj-column>
     </mj-section> 
@@ -150,11 +150,11 @@
           </tr>
           <tr>
             <td class="mynotice" sytle="width: 40%"> Scheduled stop </td>
-            <td class="mynotice"> --curly stop_timedelta_humanized  curly-- at --curly stop_timestamp  curly--</td>
+            <td class="mynotice"> {{ stop_timedelta_humanized  }} at {{ stop_timestamp  }}</td>
           </tr>
           <tr>
             <td class="mynotice" style="width: 40%"> Scheduled retirement</td>
-            <td class="mynotice"> --curly retirement_timedelta_humanized  curly-- at --curly retirement_timestamp  curly--. </td>
+            <td class="mynotice"> {{ retirement_timedelta_humanized  }} at {{ retirement_timestamp  }}. </td>
           </tr>
         </mj-table>
       </mj-column>
@@ -167,13 +167,12 @@
         </mj-column>
     </mj-section>
 
-{% for var in email_template_vars %}
-    <!-- {{ var.header }} -->
+    <!-- Heading No 1 -->
     <mj-section padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px">
       <mj-column>
         <mj-table padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px"> 
           <tr>
-            <td class="myheading">{{ var.header }}</td>
+            <td class="myheading">Heading No 1</td>
           </tr>
         </mj-table>
       </mj-column>
@@ -188,47 +187,210 @@
             <th class="mytable colwidth2">Element</th>
              <th class="mytable colwidth3">Value</th>
           </tr>
-  {% for content in var.contents %}
-    <!-- {{ content.title }} -->
+      <!-- Row with one set -->
           <tr class="mytable"><td colspan="3" id="spacer"></td></tr>
           <tr class="mytable">
-            <td rowspan={{ content.details | length }} class="mytable">
-              {{ content.title }}
+            <td rowspan=1 class="mytable">
+              Row with one set
             </td>
-            {%if content.details.0.note is defined %}  
+                
+            <td class="mytable">
+              Type1
+            </td>
+            <td class="mytable">
+              {{ variable }} 
+            </td>
+                      </tr>
+      
+      <!-- Row with two sets -->
+          <tr class="mytable"><td colspan="3" id="spacer"></td></tr>
+          <tr class="mytable">
+            <td rowspan=2 class="mytable">
+              Row with two sets
+            </td>
+                
+            <td class="mytable">
+              Type1
+            </td>
+            <td class="mytable">
+              ssh {{username}}@{{ variable }}.com 
+            </td>
+                      </tr>
+                <tr class="mytable">
+                            <td class="mytable">
+                Type2
+              </td>
+              <td class="mytable">
+                string
+              </td>
+                          </tr>
+      
+      <!-- Row with two sets and one note -->
+          <tr class="mytable"><td colspan="3" id="spacer"></td></tr>
+          <tr class="mytable">
+            <td rowspan=3 class="mytable">
+              Row with two sets and one note
+            </td>
+              
             <td colspan=2 class="mytable" style="color:#f40e0e;background:#F3F3F3;">
-              {{ content.details.0.note }}
+              Here is the note
             </td>
-            {%elif content.details.0.element is defined%}    
-            <td class="mytable">
-              {{ content.details.0.element }}
-            </td>
-            <td class="mytable">
-              {{ content.details.0.value }} 
-            </td>
-            {%endif%}
-          </tr>
-    {% for count in range(1,content.details|length) %}
-            <tr class="mytable">
-              {%if content.details[count].note is defined %}
-              <td colspan=2 class="mytable" style="color:#f40e0e;background:#F3F3F3;">
-                {{ content.details[count].note }}
-              </td>
-              {%elif content.details[count].element is defined%}
-              <td class="mytable">
-                {{ content.details[count].element }}
+                      </tr>
+                <tr class="mytable">
+                            <td class="mytable">
+                Type1
               </td>
               <td class="mytable">
-                {{ content.details[count].value }}
+                ssh {{username}}@{{ variable }}.com
               </td>
-              {%endif%}
-            </tr>
-    {% endfor %}  
-  {% endfor %}          
+                          </tr>
+                <tr class="mytable">
+                            <td class="mytable">
+                Type2
+              </td>
+              <td class="mytable">
+                string
+              </td>
+                          </tr>
+      
+      <!-- Row with two sets and two notes -->
+          <tr class="mytable"><td colspan="3" id="spacer"></td></tr>
+          <tr class="mytable">
+            <td rowspan=4 class="mytable">
+              Row with two sets and two notes
+            </td>
+              
+            <td colspan=2 class="mytable" style="color:#f40e0e;background:#F3F3F3;">
+              Note at top
+            </td>
+                      </tr>
+                <tr class="mytable">
+                            <td class="mytable">
+                Type1
+              </td>
+              <td class="mytable">
+                ssh {{username}}@{{ variable }}.com
+              </td>
+                          </tr>
+                <tr class="mytable">
+                            <td class="mytable">
+                Type2
+              </td>
+              <td class="mytable">
+                string
+              </td>
+                          </tr>
+                <tr class="mytable">
+                            <td colspan=2 class="mytable" style="color:#f40e0e;background:#F3F3F3;">
+                Note at bottom
+              </td>
+                          </tr>
+      
+            
         </mj-table>
       </mj-column>
     </mj-section>
-{% endfor %}
+    <!-- Heading No 2 -->
+    <mj-section padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px">
+      <mj-column>
+        <mj-table padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px"> 
+          <tr>
+            <td class="myheading">Heading No 2</td>
+          </tr>
+        </mj-table>
+      </mj-column>
+    </mj-section>
+
+
+    <mj-section padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px">
+      <mj-column>
+        <mj-table css-class="mytable" >
+          <tr class="mytable">
+            <th class="mytable colwidth1">Title</th>
+            <th class="mytable colwidth2">Element</th>
+             <th class="mytable colwidth3">Value</th>
+          </tr>
+      <!-- Row with one set -->
+          <tr class="mytable"><td colspan="3" id="spacer"></td></tr>
+          <tr class="mytable">
+            <td rowspan=1 class="mytable">
+              Row with one set
+            </td>
+                
+            <td class="mytable">
+              Type1
+            </td>
+            <td class="mytable">
+              {{ variable }} 
+            </td>
+                      </tr>
+      
+            
+        </mj-table>
+      </mj-column>
+    </mj-section>
+    <!-- Heading No 3 -->
+    <mj-section padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px">
+      <mj-column>
+        <mj-table padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px"> 
+          <tr>
+            <td class="myheading">Heading No 3</td>
+          </tr>
+        </mj-table>
+      </mj-column>
+    </mj-section>
+
+
+    <mj-section padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px">
+      <mj-column>
+        <mj-table css-class="mytable" >
+          <tr class="mytable">
+            <th class="mytable colwidth1">Title</th>
+            <th class="mytable colwidth2">Element</th>
+             <th class="mytable colwidth3">Value</th>
+          </tr>
+      <!-- Row with one set -->
+          <tr class="mytable"><td colspan="3" id="spacer"></td></tr>
+          <tr class="mytable">
+            <td rowspan=1 class="mytable">
+              Row with one set
+            </td>
+                
+            <td class="mytable">
+              Type1
+            </td>
+            <td class="mytable">
+              {{ variable }} 
+            </td>
+                      </tr>
+      
+      <!-- Row with two sets -->
+          <tr class="mytable"><td colspan="3" id="spacer"></td></tr>
+          <tr class="mytable">
+            <td rowspan=2 class="mytable">
+              Row with two sets
+            </td>
+                
+            <td class="mytable">
+              Type1
+            </td>
+            <td class="mytable">
+              ssh {{username}}@{{ variable }}.com 
+            </td>
+                      </tr>
+                <tr class="mytable">
+                            <td class="mytable">
+                Type2
+              </td>
+              <td class="mytable">
+                string
+              </td>
+                          </tr>
+      
+            
+        </mj-table>
+      </mj-column>
+    </mj-section>
     <!-- divider -->
     <mj-section padding-top="5px" padding-bottom="5px" padding-left="0px" padding-right="0px">
         <mj-column>
@@ -243,8 +405,8 @@
           <tr>
             <td class="mytwocolumtable" style="width: 40%">Service management URL<td>
             <td class="mytwocolumtable">
-              <a class="mytwocolumtable" href="--curly service_url  curly--">
-                --curly service_url  curly--
+              <a class="mytwocolumtable" href="{{ service_url  }}">
+                {{ service_url  }}
               </a>
             <td>
           </tr>

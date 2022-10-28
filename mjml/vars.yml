@@ -2,55 +2,54 @@
 
 # Service Display name
 service_display_name: "{{ 'Any static name {{service_display_name}}' | string }}"
-headings:
-  - title: Heading No 1
-    table:
-      - row: Row with one set
-        column:
-          - type: Type1
-            details: "{{ '{{ variable }}' | string }}"
-
-      - row: Row with two sets
-        column:
-          - type: Type1
-            details: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
-          - type: Type2
-            details: "{{ 'string' | string }}"
-
-      - row: Row with two sets and one note
-        column:
+email_template_vars:
+  - header: Heading No 1
+    contents:
+      - title: Row with one set
+        details:
+          - element: Type1
+            value: "{{ '{{ variable }}' | string }}"
+      - title: Row with two sets
+        details:
+          - element: Type1
+            value: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
+          - element: Type2
+            value: "{{ 'string' | string }}"
+      - title: Row with two sets and one note
+        details:
           - note: "Here is the note"
-          - type: Type1
-            details: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
-          - type: Type2
-            details: "{{ 'string' | string }}"
-
-      - row: Row with two sets and two notes
-        column:
+          - element: Type1
+            value: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
+          - element: Type2
+            value: "{{ 'string' | string }}"
+      - title: Row with two sets and two notes
+        details:
           - note: "Note at top"
-          - type: Type1
-            details: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
-          - type: Type2
-            details: "{{ 'string' | string }}"
+          - element: Type1
+            value: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
+          - element: Type2
+            value: "{{ 'string' | string }}"
           - note: "Note at bottom"
 
-  - title: Heading No 2
-    table:
-      - row: Row with one set
-        column:
-          - type: Type1
-            details: "{{ '{{ variable }}' | string }}"
+  - header: Heading No 2
+    contents:
+      - title: Row with one set
+        details:
+          - element: Type1
+            value: "{{ '{{ variable }}' | string }}"
 
-  - title: Heading No 3
-    table:
-      - row: Row with one set
-        column:
-          - type: Type1
-            details: "{{ '{{ variable }}' | string }}"
+  - header: Heading No 3
+    contents:
+      - title: Row with one set
+        details:
+          - element: Type1
+            value: "{{ '{{ variable }}' | string }}"
 
-      - row: Row with two sets
-        column:
-          - type: Type1
-            details: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
-          - type: Type2
-            details: "{{ 'string' | string }}"
+      - title: Row with two sets
+        details:
+          - element: Type1
+            value: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
+          - element: Type2
+            value: "{{ 'string' | string }}"
+
+          
