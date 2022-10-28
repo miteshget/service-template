@@ -1,0 +1,56 @@
+---
+
+# Service Display name
+service_display_name: "{{ 'Any static name {{service_display_name}}' | string }}"
+headings:
+  - title: Heading No 1
+    table:
+      - row: Row with one set
+        column:
+          - type: Type1
+            details: "{{ '{{ variable }}' | string }}"
+
+      - row: Row with two sets
+        column:
+          - type: Type1
+            details: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
+          - type: Type2
+            details: "{{ 'string' | string }}"
+
+      - row: Row with two sets and one note
+        column:
+          - note: "Here is the note"
+          - type: Type1
+            details: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
+          - type: Type2
+            details: "{{ 'string' | string }}"
+
+      - row: Row with two sets and two notes
+        column:
+          - note: "Note at top"
+          - type: Type1
+            details: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
+          - type: Type2
+            details: "{{ 'string' | string }}"
+          - note: "Note at bottom"
+
+  - title: Heading No 2
+    table:
+      - row: Row with one set
+        column:
+          - type: Type1
+            details: "{{ '{{ variable }}' | string }}"
+
+  - title: Heading No 3
+    table:
+      - row: Row with one set
+        column:
+          - type: Type1
+            details: "{{ '{{ variable }}' | string }}"
+
+      - row: Row with two sets
+        column:
+          - type: Type1
+            details: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
+          - type: Type2
+            details: "{{ 'string' | string }}"

@@ -1,0 +1,24 @@
+---
+- name: Service ready message template generator
+  hosts: localhost
+  vars_files:
+    - vars.yml
+  vars:
+    curlytag: "{{ '{{' |string }}"
+  tasks:
+    - name: Create service ready message mjml
+      template:
+          src: template.mjml.j2
+          dest: service-ready-message-template.mjml
+
+    - name: reset as variables
+      replace:
+        path: service-ready-message-template.mjml
+        regexp: '--curly'
+        replace: "{{ '{{' |string }}"
+
+    - name: reset as variables
+      replace:
+        path: service-ready-message-template.mjml
+        regexp: 'curly--'
+        replace: "{{ '}}' |string }}"
