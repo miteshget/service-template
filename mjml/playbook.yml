@@ -23,13 +23,21 @@
         regexp: 'curly--'
         replace: "{{ '}}' |string }}"
 
-    - name: Install npm
+    - name: Install npm on MacOSX
+      package:
+        name: npm 
+        state: latest
+      when: ansible_distribution == "MacOSX"
+
+    - name: Install npm RHEL
       become: true
       package:
         name: npm 
         state: latest
+      when: ansible_distribution != "MacOSX"
 
-    - name: Install mjml node.js package.
+
+    - name: Install mjml node.js package
       npm:
         name: mjml
         path: /tmp/mjml/
