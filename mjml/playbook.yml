@@ -6,6 +6,12 @@
   vars:
     curlytag: "{{ '{{' |string }}"
   tasks:
+    - name: Create output directory
+      file:
+        path: "{{ output_dir }}"
+        recurse: yes
+        state: directory
+
     - name: Create service ready message mjml
       template:
           src: template.mjml.j2
