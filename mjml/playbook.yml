@@ -24,6 +24,7 @@
         replace: "{{ '}}' |string }}"
 
     - name: Install npm
+      become: true
       package:
         name: npm 
         state: latest
