@@ -3,8 +3,6 @@
   hosts: localhost
   vars_files:
     - vars.yml
-  vars:
-    curlytag: "{{ '{{' |string }}"
   tasks:
     - name: Create output directory
       file:
@@ -42,7 +40,6 @@
         state: latest
       when: ansible_distribution != "MacOSX"
 
-
     - name: Install mjml node.js package
       npm:
         name: mjml
@@ -56,5 +53,6 @@
         > {{ output_dir }}/index.html
 
     - name: Open html in browser
+      ignore_errors: true
       shell: >-
         open {{ output_dir }}/index.html
