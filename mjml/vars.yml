@@ -9,27 +9,7 @@ email_template_vars:
         details:
           - element: Type1
             value: "{{ '{{ variable }}' | string }}"
-      - title: Row with two sets
-        details:
-          - element: Type1
-            value: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
-          - element: Type2
-            value: "{{ 'string' | string }}"
-      - title: Row with two sets and one note
-        details:
-          - note: "Here is the note"
-          - element: Type1
-            value: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
-          - element: Type2
-            value: "{{ 'string' | string }}"
-      - title: Row with two sets and two notes
-        details:
-          - note: "Note at top"
-          - element: Type1
-            value: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
-          - element: Type2
-            value: "{{ 'string' | string }}"
-          - note: "Note at bottom"
+ 
 
   - header: Heading No 2
     contents:
