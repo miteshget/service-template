@@ -22,3 +22,20 @@
         path: service-ready-message-template.mjml
         regexp: 'curly--'
         replace: "{{ '}}' |string }}"
+
+    - name: Install npm
+      package:
+        name: npm 
+        state: latest
+
+    - name: Install mjml node.js package.
+      npm:
+        name: mjml
+        path: /tmp/mjml/
+        version: '4.13.0'
+
+    - name: Convert mjml to html
+      shell: >-
+        /tmp/mjml/node_modules/.bin/mjml
+        service-ready-message-template.mjml
+        > index.html
