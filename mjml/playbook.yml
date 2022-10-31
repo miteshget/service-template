@@ -46,11 +46,15 @@
     - name: Install mjml node.js package
       npm:
         name: mjml
-        path: /tmp/mjml/
+        path: "{{ output_dir }}"
         version: '4.13.0'
 
     - name: Convert mjml to html
       shell: >-
-        /tmp/mjml/node_modules/.bin/mjml
+        {{ output_dir }}/node_modules/.bin/mjml
         {{ output_dir }}/service-ready-message-template.mjml
         > {{ output_dir }}/index.html
+
+    - name: Open html in browser
+      shell: >-
+        open {{ output_dir }}/index.html
