@@ -1,5 +1,5 @@
 ---
-output_dir: /tmp/mjml/workdir/
+output_dir: /tmp/mjml/
 
 # Service Display name
 service_display_name: "{{ 'Any static name {{service_display_name}}' | string }}"

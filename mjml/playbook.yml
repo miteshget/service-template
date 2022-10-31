@@ -52,6 +52,12 @@
         {{ output_dir }}/service-ready-message-template.mjml
         > {{ output_dir }}/index.html
 
+    - name: copy index file as jinja template
+      copy:
+        src: "{{ output_dir }}/index.html"
+        dest: "{{ output_dir }}/service-ready-message-template.html.j2"
+        remote_src: yes
+
     - name: Open html in browser
       ignore_errors: true
       shell: >-
