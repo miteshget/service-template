@@ -20,10 +20,22 @@
         font-family: Red Hat Display;
         word-break: break-word;
         padding: 2px 2px 2px 2px;
+      {% if table_design == "radious" %}
         border-radius: 20px;
+      {% endif %}
         color: #F3F3F3;
         font-size:20px;
         background:#f40e0e;"
+      }
+      .mynotes {
+        text-align: center;
+        font-family: Red Hat Display;
+        font-size: 16px;
+        word-break: break-word;
+        color: #f40e0e;
+        background:#F3F3F3;
+        padding: 5px 5px 5px 5px;
+        border: 2px solid white;
       }
       .mynotice {
         text-align: center;
@@ -54,7 +66,9 @@
       .mytable {
         text-align: center;
         font-family: Red Hat Display;
+      {% if table_design == "radious" %}
         border-radius: 20px;
+      {% endif %}
         word-break: break-word;
         font-size: 14px;
         border: 2px;
@@ -167,17 +181,45 @@
         </mj-column>
     </mj-section>
 
-{% for var in email_template_vars %}
-    <!-- {{ var.header }} -->
+   {% if global_note is defined %}
+    <!-- Global Note -->
     <mj-section padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px">
       <mj-column>
-        <mj-table padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px"> 
+        <mj-table padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px">
           <tr>
-            <td class="myheading">{{ var.header }}</td>
+            <td class="mynotes">{{ global_note }}</td>
           </tr>
         </mj-table>
       </mj-column>
     </mj-section>
+  {% endif %}
+
+{% for var in email_template_vars %}
+    <mj-section padding-top="20px" padding-bottom="0px" padding-left="0px" padding-right="0px">
+    </mj-section>
+    <!-- {{ var.segment }} -->
+    <mj-section padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px">
+      <mj-column>
+        <mj-table padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px"> 
+          <tr>
+            <td class="myheading">{{ var.segment }}</td>
+          </tr>
+        </mj-table>
+      </mj-column>
+    </mj-section>
+
+   {% if var.segment_note is defined %}
+    <!-- Segment Note -->
+    <mj-section padding-top="2px" padding-bottom="0px" padding-left="0px" padding-right="0px">
+      <mj-column>
+        <mj-table padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px"> 
+          <tr>
+            <td class="mynotes">{{ var.segment_note }}</td>
+          </tr>
+        </mj-table>
+      </mj-column>
+    </mj-section>
+   {% endif %}
 
 
     <mj-section padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px">

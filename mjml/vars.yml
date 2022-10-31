@@ -1,23 +1,30 @@
 ---
 output_dir: /tmp/mjml/
+table_design: radious
 
 # Service Display name
-service_display_name: "{{ 'Any static name {{service_display_name}}' | string }}"
-email_template_vars:
-  - header: Heading No 1
-    contents:
-      - title: Row with one set
-        details:
-          - element: Type1
-            value: "{{ '{{ variable }}' | string }}"
- 
+service_display_name: "{{ '{{service_display_name}}' | string }}"
+global_note: "This is for global note If defined "
 
-  - header: Heading No 2
+email_template_vars:
+  - segment: Segment no 1
+    segment_note: "segment note if defined" 
     contents:
-      - title: Row with one set
+      - title: Linux Host
         details:
-          - element: Type1
+          - element: Username
+            value: "{{ 'ec2-user' | string }}"
+          - element: password
             value: "{{ '{{ variable }}' | string }}"
+          - element: Host
+            value: "{{ 'bastion.xxxx.opentlc.com' | string }}"
+
+  - segment: Segment No 2
+    contents:
+      - title: OpenShift Dev Cluster
+        details:
+          - element: Url
+            value: "{{ '{{ openshift_console_url }}' | string }}"
 
 
 

@@ -1,14 +1,23 @@
 ---
+output_dir: /tmp/mjml/
+table_design: flat
 
 # Service Display name
 service_display_name: "{{ 'Any static name {{service_display_name}}' | string }}"
+global_note: "This is for global note If defined "
+
 email_template_vars:
-  - header: Heading No 1
+  - segment: Segment no 1
+    segment_note: "segment note if defined" 
     contents:
-      - title: Row with one set
+      - title: Linux Host
         details:
-          - element: Type1
+          - element: Username
+            value: "{{ 'ec2-user' | string }}"
+          - element: password
             value: "{{ '{{ variable }}' | string }}"
+          - element: Host
+            value: "{{ 'bastion.xxxx.opentlc.com' | string }}"
 
       - title: Row with two sets
         details:
@@ -16,6 +25,7 @@ email_template_vars:
             value: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
           - element: Type2
             value: "{{ 'string' | string }}"
+
       - title: Row with two sets and one note
         details:
           - note: "Here is the note"
@@ -23,6 +33,7 @@ email_template_vars:
             value: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
           - element: Type2
             value: "{{ 'string' | string }}"
+
       - title: Row with two sets and two notes
         details:
           - note: "Note at top"
@@ -32,14 +43,14 @@ email_template_vars:
             value: "{{ 'string' | string }}"
           - note: "Note at bottom"
 
-  - header: Heading No 2
+  - segment: Segment No 2
     contents:
-      - title: Row with one set
+      - title: OpenShift Dev Cluster
         details:
-          - element: Type1
-            value: "{{ '{{ variable }}' | string }}"
+          - element: Url
+            value: "{{ '{{ openshift_console_url }}' | string }}"
 
-  - header: Heading No 3
+  - segment: Heading No 3
     contents:
       - title: Row with one set
         details:
