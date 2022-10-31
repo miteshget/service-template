@@ -12,5 +12,5 @@ Go to html directory to know more.
 Go to mjml directory to know more.
 
 
-== Author Notes
+== Author's Note
 This template work is inspired by and dedicated to Prakhar Srivastav.
