@@ -3,22 +3,37 @@
   hosts: localhost
   vars_files:
     - vars.yml
-  vars:
-    curlytag: "{{ '{{' |string }}"
   tasks:
-    - name: Create service ready message html
+    - name: Create output directory
+      file:
+        path: "{{ output_dir }}/data"
+        recurse: yes
+        state: directory
+
+    - name: Create service ready message
       template:
           src: template.html.j2
-          dest: service-ready-message-template.html
+          dest: "{{ output_dir }}/data/service-ready-message-template.html"
 
-    - name: reset as variables
+    - name: reset variables
       replace:
-        path: service-ready-message-template.html
+        path: "{{ output_dir }}/data/service-ready-message-template.html"
         regexp: '--curly'
         replace: "{{ '{{' |string }}"
 
-    - name: reset as variables
+    - name: reset variables
       replace:
-        path: service-ready-message-template.html
+        path: "{{ output_dir }}/data/service-ready-message-template.html"
         regexp: 'curly--'
         replace: "{{ '}}' |string }}"
+
+    - name: copy index file as jinja template
+      copy:
+        src: "{{ output_dir }}/data/index.html"
+        dest: "{{ output_dir }}/data/service-ready-message-template.html.j2"
+        remote_src: yes
+
+    - name: Open html in browser
+      ignore_errors: true
+      shell: >-
+        open {{ output_dir }}/data/service-ready-message-template.html

@@ -1,0 +1,69 @@
+---
+output_dir: /tmp/html/
+table_design: flat
+service_notice: false
+service_notice_position: top
+
+# Service Display name
+service_display_name: "{{ 'Any static name {{service_display_name}}' | string }}"
+global_note: "This is for global note If defined "
+
+email_template_vars:
+  - segment: Segment no 1
+    segment_note: "segment note if defined" 
+    contents:
+      - title: Linux Host
+        details:
+          - element: Username
+            value: "{{ 'ec2-user' | string }}"
+          - element: password
+            value: "{{ '{{ variable }}' | string }}"
+          - element: Host
+            value: "{{ 'bastion.xxxx.opentlc.com' | string }}"
+
+      - title: Row with two sets
+        details:
+          - element: Type1
+            value: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
+          - element: Type2
+            value: "{{ 'string' | string }}"
+
+      - title: Row with two sets and one note
+        details:
+          - note: "Here is the note"
+          - element: Type1
+            value: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
+          - element: Type2
+            value: "{{ 'string' | string }}"
+
+      - title: Row with two sets and two notes
+        details:
+          - note: "Note at top"
+          - element: Type1
+            value: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
+          - element: Type2
+            value: "{{ 'string' | string }}"
+          - note: "Note at bottom"
+
+  - segment: Segment No 2
+    contents:
+      - title: OpenShift Dev Cluster
+        details:
+          - element: Url
+            value: "{{ '{{ openshift_console_url }}' | string }}"
+
+  - segment: Heading No 3
+    contents:
+      - title: Row with one set
+        details:
+          - element: Type1
+            value: "{{ '{{ variable }}' | string }}"
+
+      - title: Row with two sets
+        details:
+          - element: Type1
+            value: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
+          - element: Type2
+            value: "{{ 'string' | string }}"
+
+          

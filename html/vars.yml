@@ -1,56 +1,29 @@
 ---
+output_dir: /tmp/html/
+table_design: radious
+service_notice: true
+service_notice_position: top
 
 # Service Display name
-service_display_name: "{{ 'Any static name {{service_display_name}}' | string }}"
-headings:
-  - title: Heading No 1
-    table:
-      - row: Row with one set
-        column:
-          - type: Type1
-            details: "{{ '{{ variable }}' | string }}"
+service_display_name: "{{ '{{service_display_name}}' | string }}"
+global_note: "This is for global note If defined "
 
-      - row: Row with two sets
-        column:
-          - type: Type1
-            details: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
-          - type: Type2
-            details: "{{ 'string' | string }}"
+email_template_vars:
+  - segment: Segment no 1
+    segment_note: "segment note if defined" 
+    contents:
+      - title: Linux Host
+        details:
+          - element: Username
+            value: "{{ 'ec2-user' | string }}"
+          - element: password
+            value: "{{ '{{ variable }}' | string }}"
+          - element: Host
+            value: "{{ 'bastion.xxxx.opentlc.com' | string }}"
 
-      - row: Row with two sets and one note
-        column:
-          - note: "Here is the note"
-          - type: Type1
-            details: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
-          - type: Type2
-            details: "{{ 'string' | string }}"
-
-      - row: Row with two sets and two notes
-        column:
-          - note: "Note at top"
-          - type: Type1
-            details: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
-          - type: Type2
-            details: "{{ 'string' | string }}"
-          - note: "Note at bottom"
-
-  - title: Heading No 2
-    table:
-      - row: Row with one set
-        column:
-          - type: Type1
-            details: "{{ '{{ variable }}' | string }}"
-
-  - title: Heading No 3
-    table:
-      - row: Row with one set
-        column:
-          - type: Type1
-            details: "{{ '{{ variable }}' | string }}"
-
-      - row: Row with two sets
-        column:
-          - type: Type1
-            details: "{{ 'ssh {{username}}@{{ variable }}.com' | string }}"
-          - type: Type2
-            details: "{{ 'string' | string }}"
+  - segment: Segment No 2
+    contents:
+      - title: OpenShift Dev Cluster
+        details:
+          - element: Url
+            value: "{{ '{{ openshift_console_url }}' | string }}"
