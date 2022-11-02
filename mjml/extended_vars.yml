@@ -1,6 +1,8 @@
 ---
 output_dir: /tmp/mjml/
 table_design: flat
+service_notice: false
+service_notice_position: top
 
 # Service Display name
 service_display_name: "{{ 'Any static name {{service_display_name}}' | string }}"

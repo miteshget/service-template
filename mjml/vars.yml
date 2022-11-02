@@ -1,6 +1,8 @@
 ---
 output_dir: /tmp/mjml/
 table_design: radious
+service_notice: true
+service_notice_position: top
 
 # Service Display name
 service_display_name: "{{ '{{service_display_name}}' | string }}"

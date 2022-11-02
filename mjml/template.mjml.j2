@@ -151,7 +151,7 @@
         </mj-table>
       </mj-column>
     </mj-section> 
-    
+   {% if ( service_notice == true ) and ( service_notice_position == "top") %}
     <!-- Notice -->
     <mj-section padding-top="10px" padding-bottom="0px" padding-left="0px" padding-right="0px">
       <mj-column>
@@ -173,7 +173,7 @@
         </mj-table>
       </mj-column>
     </mj-section>
-
+    {% endif %}
      <!-- divider -->
     <mj-section padding-top="5px" padding-bottom="5px" padding-left="0px" padding-right="0px">
         <mj-column>
@@ -293,6 +293,30 @@
         </mj-table>
       </mj-column>
     </mj-section>
+
+   {% if ( service_notice == true ) and ( service_notice_position == "bottom") %}
+    <!-- Notice -->
+    <mj-section padding-top="10px" padding-bottom="0px" padding-left="0px" padding-right="0px">
+      <mj-column>
+        <mj-table width="400px" align="center">
+          <tr>
+            <td colspan=2 class="mynoticeheader" >Notice</td>
+          </tr>
+          <tr class="mynotice">
+            <td colspan=2>This service is scheduled to stop and be retired:</td>
+          </tr>
+          <tr>
+            <td class="mynotice" sytle="width: 40%"> Scheduled stop </td>
+            <td class="mynotice"> --curly stop_timedelta_humanized  curly-- at --curly stop_timestamp  curly--</td>
+          </tr>
+          <tr>
+            <td class="mynotice" style="width: 40%"> Scheduled retirement</td>
+            <td class="mynotice"> --curly retirement_timedelta_humanized  curly-- at --curly retirement_timestamp  curly--. </td>
+          </tr>
+        </mj-table>
+      </mj-column>
+    </mj-section>
+    {% endif %}
 
     <!-- divider -->
     <mj-section padding-top="5px" padding-bottom="5px" padding-left="0px" padding-right="0px">

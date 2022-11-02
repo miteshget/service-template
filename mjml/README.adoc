@@ -43,16 +43,10 @@ headings:
 == execute following command
 ansible-playbook playbook.yml
 
-== Now convert mjml to html
-. Initialize
 
-npm init -y && npm install mjml
-
-. Convert
- \./node_modules/.bin/mjml service-ready-message-template.mjml > index.html
 
 == Open in browser
-open index.html in browser
+open /tmp/mjml/data/index.html in browser
 
 == Web Output 
 image:service_template_1.png[]
