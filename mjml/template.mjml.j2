@@ -221,6 +221,7 @@
     </mj-section>
    {% endif %}
 
+{% if var.contents is defined %}
 
     <mj-section padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px">
       <mj-column>
@@ -266,7 +267,8 @@
               {%endif%}
             </tr>
     {% endfor %}  
-  {% endfor %}          
+  {% endfor %}
+  {%endif%}     
         </mj-table>
       </mj-column>
     </mj-section>
