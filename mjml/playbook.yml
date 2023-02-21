@@ -1,9 +1,15 @@
 ---
 - name: Service ready message template generator
   hosts: localhost
-  vars_files:
-    - vars.yml
   tasks:
+    - name: Set variables file path
+      set_fact:
+        template_vars_file: ./vars.yml
+      when: template_vars_file is not defined
+
+    - name: Include variables file
+      include_vars: "{{ template_vars_file }}"
+
     - name: Create output directory
       file:
         path: "{{ output_dir }}/data"
@@ -27,25 +33,29 @@
         regexp: 'curly--'
         replace: "{{ '}}' |string }}"
 
-    - name: Install npm on MacOSX
-      package:
-        name: npm 
-        state: latest
-      when: ansible_distribution == "MacOSX"
+    - name: Install npm
+      when: install_npm | default(false)
+      block:
+        - name: Install npm on MacOSX
+          package:
+            name: npm 
+            state: latest
+          when: ansible_distribution == "MacOSX"
 
-    - name: Install npm RHEL
-      become: true
-      package:
-        name: npm 
-        state: latest
-      when: ansible_distribution != "MacOSX"
+        - name: Install npm RHEL
+          become: true
+          package:
+            name: npm 
+            state: latest
+          when: ansible_distribution != "MacOSX"
 
     - name: Install mjml node.js package
       npm:
         name: mjml
         path: "{{ output_dir }}"
         version: '4.13.0'
-
+      when: install_mjml | default(true)
+    
     - name: Convert mjml to html
       shell: >-
         {{ output_dir }}/node_modules/.bin/mjml
