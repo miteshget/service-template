@@ -1,0 +1,28 @@
+---
+
+# Directory where generated template will stored
+output_dir: /tmp/service-template/
+
+# Template will be processed  from respective directories
+# Format Options: html/mjml
+template_format: mjml
+
+# Enable to install npm as prerequisite
+install_mjml_prereqs: false
+
+# Table outline design, Options: radious/flat 
+table_design: flat
+
+# Enable Service Notice which displays 
+# start/stop and Auto destroy date/time of the CI 
+service_notice: true
+
+# Position of the Service Notice, Options: top/bottom
+service_notice_position: top
+
+# Email template dictionary 
+email_template_vars:
+  - segment: "NOTE"
+    segment_note: |
+      Look at the sample vars for more formats
+

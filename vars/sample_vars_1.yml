@@ -1,0 +1,32 @@
+---
+
+# Table outline design, Options: radious/flat 
+table_design: radious
+
+service_notice: true
+# Position of the Service Notice, Options: top/bottom
+service_notice_position: bottom
+
+# Service Display name
+service_display_name: "{{ '{{service_display_name}}' | string }}"
+global_note: "This is for global note If defined "
+
+email_template_vars:
+  - segment: Segment no 1
+    segment_note: "segment note if defined" 
+    contents:
+      - title: Linux Host
+        details:
+          - element: Username
+            value: "{{ 'ec2-user' | string }}"
+          - element: password
+            value: "{{ '{{ variable }}' | string }}"
+          - element: Host
+            value: "{{ 'bastion.xxxx.opentlc.com' | string }}"
+
+  - segment: Segment No 2
+    contents:
+      - title: OpenShift Dev Cluster
+        details:
+          - element: Url
+            value: "{{ '{{ openshift_console_url }}' | string }}"

@@ -1,0 +1,316 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+   <head>
+      <title></title>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text&display=swap" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap" rel="stylesheet" type="text/css">
+      <style type="text/css">@import url(https://fonts.googleapis.com/css2?family=Red+Hat+Text&display=swap);
+         @import url(https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap);
+      </style>
+  
+
+      <style type="text/css">
+      .myheader {
+        background: #151515;
+        color: #F3F3F3;
+        text-align: right;
+      }
+     .mytitle {
+        text-align: center;
+        font-family: Red Hat Display;
+        font-size: 16px;
+        word-break: break-word;
+        color: #000000;
+        line-height: 1.2;
+        padding: 0px 0px 12px 0px;
+      }
+      .mynoticeheader {
+        text-align: center;
+        font-family: Red Hat Display;
+        word-break: break-word;
+        padding: 2px 2px 2px 2px;
+      {% if table_design == "radious" %}
+        border-radius: 20px;
+      {% endif %}
+        color: #F3F3F3;
+        font-size:20px;
+        background:#f40e0e;"
+      }
+      .mynotes {
+        text-align: center;
+        font-family: Red Hat Display;
+        font-size: 16px;
+        word-break: break-word;
+        color: #f40e0e;
+        background:#F3F3F3;
+        padding: 5px 5px 5px 5px;
+        border: 2px solid white;
+      }
+      .mynotice {
+        text-align: center;
+        font-family: Red Hat Display;
+        font-size: 14px;
+        word-break: break-word;
+        color: #000000;
+        background:#F3F3F3;
+        padding: 2px 2px 2px 2px;
+        border: 2px solid white;
+      }
+      td.mynotice {
+        border: 2px solid white !important;
+      }
+      #spacer {
+        background: white;
+        height: 3px;
+      }
+      .myheading {
+        font-size: 16px;
+        font-weight: 600;
+        font-family: Red Hat Display;
+        text-align: left;
+        color: #f8f8f8;
+        background: #f40e0e;
+        padding: 5px 5px 5px 5px;
+      }
+      .mytable {
+        text-align: center;
+        font-family: Red Hat Display;
+        width: 100%
+      {% if table_design == "radious" %}
+        border-radius: 20px;
+      {% endif %}
+        word-break: break-word;
+        font-size: 14px;
+        border: 2px;
+        border-style: solid;
+        border-color: white;
+      }
+      table.mytable {
+        width: 100%
+      }
+      th.mytable {
+        padding: 10px;
+        background: #000000;
+        color: #F3F3F3;
+        font-weight: 700;
+        line-height: 1;
+      }
+      tr.mytable {
+        color: #000000;
+        background: #F3F3F3;
+        border: 2px solid white;
+      }
+      td.mytable {
+        padding: 7px;
+        line-height: 1;
+      }
+      .colwidth1 { width: 150px ;}
+      .colwidth2 { width: 100px ;}
+      .colwidth3 { width: 350px ;}
+      .mytwocolumtable {
+        text-align: center;
+        font-family: Red Hat Display;
+        font-size: 14px;
+        word-break: break-word;
+        color: #000000;
+        background:#F3F3F3;
+        padding: 2px 2px 2px 2px;
+        border: 1px solid white;
+      }
+      a.mytwocolumtable {
+        text-decoration: none; 
+        color: #06c;"
+      }
+      .myfooter {
+        text-align: center;
+        font-family: Red Hat Display;
+        word-break: break-word;
+        font-size: 14px;
+        border: 0px;
+        border-color: #151515;
+        border-style: groove;
+        background: #151515;
+        color: #F3F3F3;
+      }
+      </style>
+  </head>
+  <body>
+    <!-- Main -->
+    <div style="margin:0px auto;max-width:600px;border: 1px dashed #151515;">
+        <div class="myheader" style="margin:0px auto;max-width:600px;height:50px">
+          <!-- Company Header -->
+          <table align="center" cellpadding="2" cellspacing="0" role="presentation" sytle="margin:2px" >
+            <tbody>
+              <tr>
+                <td style="align: right" >
+                  <a href="https://demo.redhat.com/" target="_blank"><img alt="RedHat" title="RedHat" align="right" width="185px"  src="https://public-assets-email.s3.us-east-2.amazonaws.com/Logo-Red_Hat-A-Reverse-RGB.png"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>&nbsp;</div>
+        
+      <!-- Service status -->
+      <div class="mytitle" style="margin:0px auto;max-width:600px;">
+        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
+          <tbody>
+              <tr><td class="mytitle">Status: Service Ready</td></tr>
+              <tr><td class="mytitle" style="font-size: 24px">--curly service_display_name  curly--</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      {% if ( service_notice == true ) and ( service_notice_position == "top") %}
+      <!-- Notice -->
+      <div padding-top="10px" padding-bottom="0px" padding-left="0px" padding-right="0px">
+        <table width="400px" align="center">
+          <tbody>
+            <tr><td colspan=2 class="mynoticeheader" >Notice</td></tr>
+            <tr class="mynotice"><td colspan=2>This service is scheduled to stop and be retired:</td></tr>
+            <tr>
+              <td class="mynotice" sytle="width: 40%"> Scheduled stop </td>
+              <td class="mynotice"> --curly stop_timedelta_humanized  curly-- at --curly stop_timestamp  curly--</td>
+            </tr>
+            <tr>
+              <td class="mynotice" style="width: 40%"> Scheduled retirement</td>
+              <td class="mynotice"> --curly retirement_timedelta_humanized  curly-- at --curly retirement_timestamp  curly--. </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+      <div>&nbsp;</div>
+
+
+    {% if global_note is defined %}
+      <!-- Global Note -->
+        <div spadding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px">
+          <table width=100% padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px">
+            <tr> <td class="mynotes">{{ global_note }}</td></tr>
+          </table>
+        </div>
+      {% endif %}
+      <div>&nbsp;</div>
+
+
+{% for var in email_template_vars %}
+     <!-- {{ var.segment}} -->
+     <div padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px">
+       <table class="mytable" padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px">
+         <tbody>
+            <tr class="mytable"><td colspan=3 class="myheading">{{ var.segment }}</td></tr>
+            
+            {% if var.segment_note is defined %}
+              <tr class="mytable"><td colspan=3 class="mynotes">{{ var.segment_note }}</td></tr>
+              <tr class="mytable"><td colspan="3" id="spacer"></td></tr>
+            {% endif %}
+
+    {% if var.contents is defined %}
+             <tr>
+                 <th class="mytable colwidth1">Title</th>
+                 <th class="mytable colwidth2">Element</th>
+                 <th class="mytable colwidth3">Value</th>
+             </tr>
+      {% for content in var.contents %}
+       <!-- {{ content.title }} -->
+          <tr class="mytable"><td colspan="3" id="spacer"></td></tr>
+          <tr class="mytable">
+            <td rowspan={{ content.details | length }} class="mytable">
+              {{ content.title }}
+            </td>
+            {%if content.details.0.note is defined %}  
+            <td colspan=2 class="mytable" style="color:#f40e0e;background:#F3F3F3;">
+              {{ content.details.0.note }}
+            </td>
+            {%elif content.details.0.element is defined%}    
+            <td class="mytable">
+              {{ content.details.0.element }}
+            </td>
+            <td class="mytable">
+              {{ content.details.0.value }} 
+            </td>
+            {%endif%}
+          </tr>
+      {% for count in range(1,content.details|length) %}
+            <tr class="mytable">
+              {%if content.details[count].note is defined %}
+              <td colspan=2 class="mytable" style="color:#f40e0e;background:#F3F3F3;">
+                {{ content.details[count].note }}
+              </td>
+              {%elif content.details[count].element is defined%}
+              <td class="mytable">
+                {{ content.details[count].element }}
+              </td>
+              <td class="mytable">
+                {{ content.details[count].value }}
+              </td>
+              {%endif%}
+            </tr>
+    {% endfor %}  
+  {% endfor %}
+{%endif%}
+           </tbody>
+       </table>
+     </div> 
+{% endfor %}
+
+  
+    <!-- Service Management URL -->
+    <div padding-top="0px" padding-bottom="0px" padding-left="0px" padding-right="0px">
+      <table class="mytwocolumtable" align=center>
+        <tbody>
+          <tr>
+            <td class="mytwocolumtable" style="width: 40%">Service management URL<td>
+            <td class="mytwocolumtable">
+              <a class="mytwocolumtable" href="--curly service_url  curly--">--curly service_url  curly--</a>
+            <td>
+          </tr>
+          </tbody>
+        </table>
+    </div>
+
+      {% if ( service_notice == true ) and ( service_notice_position == "bottom") %}
+      <!-- Notice -->
+      <div padding-top="10px" padding-bottom="0px" padding-left="0px" padding-right="0px">
+        <table width="400px" align="center">
+          <tbody>
+            <tr><td colspan=2 class="mynoticeheader" >Notice</td></tr>
+            <tr class="mynotice"><td colspan=2>This service is scheduled to stop and be retired:</td></tr>
+            <tr>
+              <td class="mynotice" sytle="width: 40%"> Scheduled stop </td>
+              <td class="mynotice"> --curly stop_timedelta_humanized  curly-- at --curly stop_timestamp  curly--</td>
+            </tr>
+            <tr>
+              <td class="mynotice" style="width: 40%"> Scheduled retirement</td>
+              <td class="mynotice"> --curly retirement_timedelta_humanized  curly-- at --curly retirement_timestamp  curly--. </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+      <div>&nbsp;</div>
+
+      <!-- Copy Right -->
+      <div style="margin:0px auto;max-width:650px;height:50px;">&nbsp;</div>
+      <table align="center"  cellpadding="0" cellspacing="0" role="presentation" style=";border:0px;background:#151515;width:100%;padding:0 0 0 0;text-align:center;">
+        <tbody>
+          <tr>
+            <td style="border:0px;text-align:right;">
+              <a href="https://www.redhat.com/en" target="_blank"><img alt="Red Hat" title="Red Hat" width=120 src="https://public-assets-email.s3.us-east-2.amazonaws.com/Logo-Red_Hat-A-Reverse-RGB.png"></a>
+            </td>
+            <td style="color:#F3F3F3;border: 0px;font-size:12px;text-align:left;">
+              © Copyright 2022 - All rights reserved
+            </td>
+        </tbody>
+      </table>
+    </div>
+    <!-- Main end -->
+    &nbsp;
+  </body>
+</html>

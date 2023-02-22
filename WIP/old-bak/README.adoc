@@ -1,0 +1,16 @@
+:imagesdir: ./images
+:linkattrs:
+
+= service-template
+Service read template genrator
+
+
+== Generate service template from html jinja template
+Go to html directory to know more.
+
+== Generate service template from mjml jinja template
+Go to mjml directory to know more.
+
+
+== Author's Note
+This template work is inspired by and dedicated to Prakhar Srivastav.

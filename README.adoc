@@ -1,16 +1,54 @@
 :imagesdir: ./images
 :linkattrs:
+:numbered:
 
 = service-template
 Service read template genrator
 
 
-== Generate service template from html jinja template
-Go to html directory to know more.
+== Clone repo
+git clone https://github.com/miteshget/service-template.git
+cd service-template
 
-== Generate service template from mjml jinja template
-Go to mjml directory to know more.
+== update variable file
+vim vars.yml
 
+. Example
++
+[source,adoc]
+----
+service_display_name: "{{ 'Type static name' | string }}"
+or
+service_display_name: "{{ '{{service_display_name}}' | string }}"
 
-== Author's Note
-This template work is inspired by and dedicated to Prakhar Srivastav.
+headings:
+  - title: Add heading here
+    table:
+      - row: Row with one set
+        column:
+          - type: Type1
+            details: "{{ '{{ Type your variable here }}' | string }}"
+
+          - type: Type2
+            details: "{{ 'Type your string here' | string }}"
+
+  - title: Add second heading here
+    table:
+      - row: Row with one set
+        column:
+          - type: Type1
+            details: "{{ '{{ Type your variable here }}' | string }}"
+----
+
+== execute following command
+ansible-playbook playbook.yml
+
+== Open in browser
+open service-ready-message-template.html in browser
+
+== Web Output 
+image:service_template_1.png[]
+
+image:service_template_2.png[]
+
+NOTE: now you can use the content of file as template 

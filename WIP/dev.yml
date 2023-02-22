@@ -1,0 +1,81 @@
+---
+- name: Service ready message template generator
+  hosts: localhost
+  tasks:
+    - name: Include default variables
+      include_vars: vars/default_vars.yml
+    
+    - name: Include variables file
+      when: template_vars_file is defined
+      include_vars: "{{ template_vars_file }}"
+
+
+    - name: Set output directory path
+      set_fact:
+        _output_data_dir_path: "{{ output_dir }}/{{ template_format }}"
+
+    # - name: Create output directory
+    #   file:
+    #     path: "{{ _output_data_dir_path }}"
+    #     recurse: yes
+    #     state: directory
+
+    - name: Render service template
+      template:
+          src: template.dev.html.j2
+          dest: "{{ _output_data_dir_path }}/raw-template"
+
+    - name: reset --curly to '{ {'
+      replace:
+        path: "{{ _output_data_dir_path }}/raw-template"
+        regexp: '--curly'
+        replace: "{{ '{{' |string }}"
+
+    - name: reset curly-- to '} }'
+      replace:
+        path: "{{ _output_data_dir_path }}/raw-template"
+        regexp: 'curly--'
+        replace: "{{ '}}' |string }}"
+
+    - name: Rename raw template
+      copy:
+        src: "{{ _output_data_dir_path }}/raw-template"
+        dest: "{{ _output_data_dir_path }}/service-ready-message-template.{{ template_format }}"
+        remote_src: yes
+
+    # - name: Remove raw template
+    #   file:
+    #     path: "{{ _output_data_dir_path }}/raw-template"
+    #     state: absent
+
+
+    # - name: copy html file as jinja template
+    #   copy:
+    #     src: "{{ _output_data_dir_path }}/service-ready-message-template.html"
+    #     dest: "{{ _output_data_dir_path }}/service-ready-message-template.html.j2"
+        # remote_src: yes
+
+    # - name: Open html in browser
+    #   ignore_errors: true
+    #   shell: >-
+    #     open {{ _output_data_dir_path }}/service-ready-message-template.html
+
+    # - name: output directory path
+    #   debug:
+    #     msg: "Output directory path: {{ _output_data_dir_path }}"
+    
+    # - name: mjml template output path
+    #   when: template_format == "mjml"
+    #   debug:
+    #     msg: "mjml template path: {{ _output_data_dir_path }}/service-ready-message-template.mjml"
+
+    # - name: html template output path
+    #   when: template_format == "html"
+    #   debug:
+    #     msg: "mjml template path: {{ _output_data_dir_path }}/service-ready-message-template.html"
+
+    # - name: Service template
+    #   debug:
+    #     msg: "Service Template path: {{ _output_data_dir_path }}/service-ready-message-template.html.j2"
+
+          
